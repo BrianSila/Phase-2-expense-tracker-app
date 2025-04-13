@@ -53,7 +53,8 @@ function App() {
     <div className="App">
       <header className="App-header">
       <h1>Expense Tracker</h1>
-        <form onSubmit={handleAddExpense}>
+        <form 
+        onSubmit={handleAddExpense}>
           <input
             type="text"
             name="name"
@@ -91,7 +92,7 @@ function App() {
           <option value="name">Name</option>
           <option value="category">Category</option>
         </select>
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>Name</th>
