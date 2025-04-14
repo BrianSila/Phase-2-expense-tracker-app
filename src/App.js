@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <h1>Expense Tracker</h1>
-        <form 
+        <form className="expense-form"
         onSubmit={handleAddExpense}>
           <input
             type="text"
@@ -78,15 +78,19 @@ function App() {
             value={formData.amount}
             onChange={handleInputChange}
             required
+            min={0}
           />
           <button type="submit">Add Expense</button>
         </form>
+        <h2>Expense search</h2>
+        <form className="expense-form">
         <input
           type="text"
           placeholder="Search expenses..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
+        </form>
         <select onChange={handleSortChange} value={sortBy}>
           <option value="">Sort By</option>
           <option value="name">Name</option>
