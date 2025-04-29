@@ -1,130 +1,164 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
   text-align: center;
+  background-color: #4caf50;
+  color: white;
+  padding: 20px 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header p {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
 }
 
-.App-header {
-  background-color: white;
-  min-height: 100vh;
+.expense-tracker {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Parent container */
+.parent {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Child container */
+.child {
+  flex: 2;
+  min-width: 300px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search input,
+.search select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 .expense-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
+  flex: 1;
+  min-width: 300px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  background-color: #f4f4f4;
 }
 
-.expense-form input {
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0.5rem;
+.expense-form h2 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #4caf50;
+}
+
+.expense-form p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.expense-form input,
+.expense-form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 300px;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #21a1f1;
-  color: white;
-  cursor: pointer;
   font-size: 1rem;
 }
-button:hover {
-  background-color: #61dafb;
+
+.expense-form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.expense-form button:hover {
+  background-color: #45a049;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
-  font-size: 0.875rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  border-radius: 6px;
 }
 
-.table thead {
-  background-color: #f8f9fa;
-  color: #495057;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.75rem;
-}
-
-.table thead th {
-  padding: 1rem 1.25rem;
+.table th,
+.table td {
+  padding: 10px;
   text-align: left;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 1px solid #ddd;
 }
 
-.table tbody tr {
-  transition: background-color 0.2s ease;
+.table th {
+  background-color: #4caf50;
+  color: white;
 }
 
-.table tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+.table tr:hover {
+  background-color: #f1f1f1;
 }
 
-.table tbody tr:hover {
-  background-color: #f1f3f5;
+.table button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.table tbody td {
-  padding: 0.875rem 1.25rem;
-  border-bottom: 1px solid #e9ecef;
-  color: #212529;
-  vertical-align: middle;
+.table button:hover {
+  background-color: #d32f2f;
 }
 
-.table tfoot {
-  background-color: #f8f9fa;
-  font-weight: 500;
-}
+@media (max-width: 768px) {
+  .parent {
+    flex-direction: column;
+  }
 
-.table tfoot td {
-  padding: 0.75rem 1.25rem;
-  border-top: 2px solid #e9ecef;
+  .expense-form,
+  .child {
+    min-width: 100%;
+  }
 }

@@ -50,11 +50,18 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Expense Tracker</h1>
-        <form className="expense-form"
-        onSubmit={handleAddExpense}>
+    <main className="expense-tracker">
+      <header>
+        <h1>Expense Tracker</h1>
+        <p>
+          Start taking control of your finances and life, Record, categorize and
+          analyse your spendings
+        </p>
+      </header>
+      <section className="parent">
+        <form className="expense-form" onSubmit={handleAddExpense}>
+          <h2>Add Expense</h2>
+          <p>Enter your expense below</p>
           <input
             type="text"
             name="name"
@@ -82,48 +89,48 @@ function App() {
           />
           <button type="submit">Add Expense</button>
         </form>
-        <h2>Expense search</h2>
-        <form className="expense-form">
-        <input
-          type="text"
-          placeholder="Search expenses..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        </form>
-        <select onChange={handleSortChange} value={sortBy}>
-          <option value="">Sort By</option>
-          <option value="name">Name</option>
-          <option value="category">Category</option>
-        </select>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Amount</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredExpenses.map((expense) => (
-              <tr key={expense.id}>
-                <td>{expense.name}</td>
-                <td>{expense.category}</td>
-                <td>Ksh {expense.amount}</td>
-                <td>
-                  <button onClick={() => handleDeleteExpense(expense.id)}>
-                    Delete
-                  </button>
-                </td>
+        <div className="child">
+          <div className="search">
+            <input
+              type="text"
+              placeholder="Search expenses..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <select onChange={handleSortChange} value={sortBy}>
+              <option value="">Sort By</option>
+              <option value="name">Name</option>
+              <option value="category">Category</option>
+            </select>
+          </div>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </header>
-    </div>
+            </thead>
+            <tbody>
+              {filteredExpenses.map((expense) => (
+                <tr key={expense.id}>
+                  <td>{expense.name}</td>
+                  <td>{expense.category}</td>
+                  <td>Ksh {expense.amount}</td>
+                  <td>
+                    <button onClick={() => handleDeleteExpense(expense.id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
   );
 }
-
 
 export default App;
